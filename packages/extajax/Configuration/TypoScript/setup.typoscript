@@ -1,0 +1,73 @@
+plugin.tx_extajax_pluginajax {
+    view {
+        templateRootPaths.0 = EXT:extajax/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_extajax_pluginajax.view.templateRootPath}
+        partialRootPaths.0 = EXT:extajax/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_extajax_pluginajax.view.partialRootPath}
+        layoutRootPaths.0 = EXT:extajax/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_extajax_pluginajax.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_extajax_pluginajax.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+//Page object for Ajax call:
+ajaxPage = PAGE
+ajaxPage {
+  typeNum = 1562349871
+  config {
+    disableAllHeaderCode = 1
+    additionalHeaders = Content-type:application/json
+    xhtml_cleaning = 0
+    admPanel = 0
+    debug = 0
+  }
+  10 = USER
+  10 {
+    userFunc = Bennet\Extajax\Controller\ListeController->ajaxCallAction
+  }
+}
+
+# these classes are only used in auto-generated templates
+plugin.tx_extajax._CSS_DEFAULT_STYLE (
+    textarea.f3-form-error {
+        background-color: #FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    input.f3-form-error {
+        background-color: #FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    .tx-extajax table {
+        border-collapse: separate;
+        border-spacing: 10px;
+    }
+
+    .tx-extajax table th {
+        font-weight: bold;
+    }
+
+    .tx-extajax table td {
+        vertical-align: top;
+    }
+
+    .typo3-messages .message-error {
+        color: red;
+    }
+
+    .typo3-messages .message-ok {
+        color: green;
+    }
+)

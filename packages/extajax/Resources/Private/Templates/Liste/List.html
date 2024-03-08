@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+  <script>
+    function test() {
+
+      fetch('/index.php?id=0&type=1562349871', {
+        method: 'GET',
+      })
+
+        .then(response => {
+          console.log(response);
+          return response.json();
+        })
+        .then(data => console.log(data))
+        .catch((error) => console.error('Error:', error));
+
+    }
+  </script>
+  <button onclick="test()">Test</button>
+</f:section>
+
+</html>
