@@ -45,7 +45,8 @@ class ListeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         foreach ($listes as $item) {
             $titles[] = $item->getTitle();
         }
-		return $this->jsonResponse(json_encode($titles));
+        header('Content-Type: application/json');
+        echo json_encode($titles);
+        exit;
     }
-
 }
