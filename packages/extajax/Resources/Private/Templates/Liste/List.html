@@ -1,4 +1,7 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+{namespace t=Helhum\TyposcriptRendering\ViewHelpers}
+
 <f:layout name="Default" />
 
 This template is responsible for creating a table of domain objects.
@@ -34,11 +37,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
             </tr>
         </f:for>
     </table>
-    
-  <script>
-    function test() {
 
-      fetch('/index.php?id=0&type=1562349871', {
+    <f:asset.script identifier="test">
+    function test(el) {
+
+      fetch(el.getAttribute('data-ajaxuri'), {
         method: 'GET',
       })
 
@@ -50,9 +53,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
         .catch((error) => console.error('Error:', error));
 
     }
-  </script>
-  <button onclick="test()">Test</button>
+    </f:asset.script>
+
+    <button onclick="test(this)" data-ajaxuri="{t:uri.ajaxAction(action: 'ajaxCall', format: 'json', controller: 'Liste') -> f:format.htmlentities()}">Test</button>
 </f:section>
 
-</html>
 </html>
