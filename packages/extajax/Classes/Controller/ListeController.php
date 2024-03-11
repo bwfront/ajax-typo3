@@ -37,16 +37,15 @@ class ListeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         return $this->htmlResponse();
     }
 
- 
-    public function ajaxCallAction()                 
+
+    public function ajaxCallAction()
     {
         $listes = $this->listeRepository->findAll();
         $titles = [];
         foreach ($listes as $item) {
             $titles[] = $item->getTitle();
         }
-        header('Content-Type: application/json');
-        return json_encode($listes);
+		return $this->jsonResponse(json_encode($titles));
     }
-    
+
 }
