@@ -4,16 +4,6 @@ declare(strict_types=1);
 
 namespace Bennet\Extajax\Controller;
 
-
-/**
- * This file is part of the "Ajax Test" Extension for TYPO3 CMS.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * (c) 2024 
- */
-
 /**
  * ListeController
  */
@@ -47,19 +37,16 @@ class ListeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         return $this->htmlResponse();
     }
 
-    public function ajaxCallAction()
+ 
+    public function ajaxCallAction()                 
     {
         $listes = $this->listeRepository->findAll();
-        
         $titles = [];
-    
         foreach ($listes as $item) {
             $titles[] = $item->getTitle();
         }
-    
         header('Content-Type: application/json');
-    
-        return json_encode($titles);
+        return json_encode($listes);
     }
     
 }
