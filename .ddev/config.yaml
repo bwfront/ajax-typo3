@@ -9,6 +9,7 @@ additional_fqdns: []
 database:
     type: mariadb
     version: "10.4"
+performance_mode: mutagen
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
@@ -273,5 +274,3 @@ web_environment: []
 # information on the commands that can be extended and the tasks you can define
 # for them. Example:
 #hooks:
-#  post-start:
-#    - exec: composer install -d /var/www/html

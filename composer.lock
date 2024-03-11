@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "386a80d46aad46912859c931d8ea0493",
+=======
+    "content-hash": "79f70e432f8a59fbc51e4ece50533275",
+>>>>>>> refs/remotes/origin/main
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -92,7 +96,7 @@
         },
         {
             "name": "bennet/extajax",
-            "version": "dev-main",
+            "version": "dev-ajax",
             "dist": {
                 "type": "path",
                 "url": "packages/extajax",
@@ -1535,6 +1539,87 @@
                 }
             ],
             "time": "2023-01-12T14:26:00+00:00"
+        },
+        {
+            "name": "helhum/typoscript-rendering",
+            "version": "v2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/helhum/typoscript_rendering.git",
+                "reference": "67d77568dea31b24437e9fca099c845d0ba43b56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/helhum/typoscript_rendering/zipball/67d77568dea31b24437e9fca099c845d0ba43b56",
+                "reference": "67d77568dea31b24437e9fca099c845d0ba43b56",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "typo3/cms-core": "^9.5.31 || ^10.4.2 || ^11.5.5"
+            },
+            "replace": {
+                "typo3-ter/typoscript-rendering": "self.version"
+            },
+            "require-dev": {
+                "nimut/testing-framework": "^6.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                },
+                "typo3/cms": {
+                    "extension-key": "typoscript_rendering",
+                    "app-dir": ".Build",
+                    "web-dir": ".Build/public"
+                },
+                "typo3/class-alias-loader": {
+                    "class-alias-maps": [
+                        "Migrations/Code/ClassAliasMap.php"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Helhum\\TyposcriptRendering\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Helmut Hummel",
+                    "email": "info@helhum.io",
+                    "homepage": "http://helhum.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Can render a TypoScript path by URL, especially useful for Ajax dispatching",
+            "homepage": "http://insight.helhum.io/post/104880845705/dont-use-eid-ajax-dispatchers-for-your-extbase",
+            "keywords": [
+                "Rendering",
+                "frontend",
+                "typo3"
+            ],
+            "support": {
+                "issues": "https://github.com/helhum/typoscript_rendering/issues",
+                "source": "https://github.com/helhum/typoscript_rendering/tree/v2.4.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/helhum/19.99",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/helhum",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-11-22T02:08:22+00:00"
         },
         {
             "name": "lolli42/finediff",

@@ -81,39 +81,50 @@ return [
         'transport_smtp_username' => '',
     ],
     'SYS' => [
-        'caching' => [
-            'cacheConfigurations' => [
-                'hash' => [
-                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
-                ],
-                'imagesizes' => [
-                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
-                    'options' => [
-                        'compression' => true,
-                    ],
-                ],
-                'pages' => [
-                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
-                    'options' => [
-                        'compression' => true,
-                    ],
-                ],
-                'pagesection' => [
-                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
-                    'options' => [
-                        'compression' => true,
-                    ],
-                ],
-                'rootline' => [
-                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
-                    'options' => [
-                        'compression' => true,
-                    ],
-                ],
-            ],
-        ],
-        'devIPmask' => '',
-        'displayErrors' => 0,
+		'caching' => [
+			'cacheConfigurations' => [
+				'core' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'hash' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'pages' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'pagesection' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'runtime' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'rootline' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'imagesizes' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'assets' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'l10n' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'fluid_template' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+				'extbase' => [
+					'backend' => \TYPO3\CMS\Core\Cache\Backend\NullBackend::class,
+				],
+			],
+		],
+		'devIPmask' => '*',
+		'displayErrors' => 1,
+		'errorHandlerErrors' => E_ALL ^ E_DEPRECATED ^ E_NOTICE,
+		'exceptionalErrors' => E_ALL ^ E_DEPRECATED ^ E_NOTICE,
+		'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
+		'debugExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
+		'productionExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
         'encryptionKey' => '9286e4760d5ebdec5aa179a58662081f706e5e21efe074792a4930b3a7807ab5622885acd711665cf5cf42b4e1fabe85',
         'exceptionalErrors' => 4096,
         'features' => [
@@ -122,6 +133,7 @@ return [
         'sitename' => 'New TYPO3 site',
         'systemMaintainers' => [
             1,
+            2,
         ],
     ],
 ];

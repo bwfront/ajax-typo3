@@ -1,4 +1,7 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+{namespace t=Helhum\TyposcriptRendering\ViewHelpers}
+
 <f:layout name="Default" />
 
 <f:section name="content">
@@ -35,10 +38,32 @@
     </f:for>
   </table>
 
+<<<<<<< HEAD
   <script>
     function test() {
+=======
+    <table class="tx_extajax">
+        <tr>
+            <th><f:translate key="tx_extajax_domain_model_liste.title" /></th>
+            <th><f:translate key="tx_extajax_domain_model_liste.text" /></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <f:for each="{listes}" as="liste">
+            <tr>
+                <td><f:link.action action="show" arguments="{liste : liste}">{liste.title}</f:link.action></td>
+                <td><f:link.action action="show" arguments="{liste : liste}">{liste.text}</f:link.action></td>
+                <td><f:link.action action="edit" arguments="{liste : liste}">Edit</f:link.action></td>
+                <td><f:link.action action="delete" arguments="{liste : liste}">Delete</f:link.action></td>
+            </tr>
+        </f:for>
+    </table>
+>>>>>>> refs/remotes/origin/main
 
-      fetch('/index.php?id=0&type=1562349871', {
+    <f:asset.script identifier="test">
+    function test(el) {
+
+      fetch(el.getAttribute('data-ajaxuri'), {
         method: 'GET',
       })
 
@@ -50,10 +75,14 @@
         .catch((error) => console.error('Error:', error));
 
     }
-  </script>
-  <button onclick="test()">Test</button>
+    </f:asset.script>
+
+    <button onclick="test(this)" data-ajaxuri="{t:uri.ajaxAction(action: 'ajaxCall', format: 'json', controller: 'Liste') -> f:format.htmlentities()}">Test</button>
 </f:section>
 
 </html>
+<<<<<<< HEAD
 
 </html>
+=======
+>>>>>>> refs/remotes/origin/main
